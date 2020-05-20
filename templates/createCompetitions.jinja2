@@ -1,0 +1,122 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Add Competition</h1>
+<form method="POST">
+    <table>
+    <tr>
+    <div>
+        <td>
+        <label for="compname">Competition Name: </label>
+        </td>
+		<td>
+		<input type="text" name="compname" id="compname" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+    <div>
+        <td>
+		<label for="compsubname">Competition Sub Name: </label>
+		</td>
+		<td>
+		<input type="text" name="compsubname" id="compsubname" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+	    <label for="start">Start date: </label>
+	    </td>
+		<td>
+        <input type="date" id="start" name="start"
+            value="2020-07-22">
+        </td>
+    </div>
+    </tr>
+	<tr>
+    <div>
+        <td>
+	    <label for="end">End date: </label>
+	    </td>
+		<td>
+        <input type="date" id="end" name="end"
+            value="2020-07-22"
+            >
+         </td>
+    </div>
+    </tr>
+	<tr>
+    <div>
+        <td>
+		<label for="facility">Facility: </label>
+		</td>
+		<td>
+		<input type="text" name="facility" id="facility" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+		<label for="location">Location: </label>
+		</td>
+		<td>
+		<input type="text" name="location" id="location" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+	    <label for="ctype">Competition Type</label>
+	    </td>
+		<td>
+	    <input type="radio" id="provincial" name="ctype" value="P">
+        <label for="provincial">Provincial</label>
+        <input type="radio" id="national" name="ctype" value="N">
+        <label for="national">National</label>
+        <input type="radio" id="international" name="ctype" value="I">
+        <label for="international">International</label>
+        </td>
+	</div>
+    </tr>
+	<tr>
+	<div>
+	    <td>
+	    <label for="csubtype">Competition Sub Type</label>
+	    </td>
+		<td>
+	    <input type="radio" id="standard" name="csubtype" value="S">
+        <label for="standard">Standard</label>
+        <input type="radio" id="championship" name="csubtype" value="C">
+        <label for="championship">Championship</label>
+        </td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+	    <label for="season">Season</label>
+	    </td>
+		<td>
+	    <input type="radio" id="indoor" name="season" value="I">
+        <label for="indoor">Indoor</label>
+        <input type="radio" id="outdoor" name="season" value="O">
+        <label for="outdoor">Outdoor</label>
+        </td>
+	</div>
+    </tr>
+	<tr>
+
+	<div>
+	    <td rowspan=2>
+	    <input type="submit" value="Create">
+	    </td>
+	</div>
+	</tr>
+    </table>
+</form>
+
+{% endblock %}

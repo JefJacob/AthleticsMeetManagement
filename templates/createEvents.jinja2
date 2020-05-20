@@ -1,0 +1,87 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Add Event </h1>
+<h2> {{competition.CompName}} </h2>
+
+<form method="POST">
+<table>
+    <tr>
+    <div>
+        <td>
+		<label for="ename">Event Name: </label>
+		</td>
+		<td>
+		<select id="ename" name="ename">
+		{% for e in masterlist %}
+		<option value="{{e}}">{{e}}</option>
+	    {% endfor %}
+        </select>
+        </td>
+	</div>
+	</tr>
+	<tr>
+    <div>
+        <td>
+		<label for="egender">Event Gender: </label>
+		</td>
+		<td>
+		<select id="egender" name="egender">
+        <option value="Boys">Boys</option>
+        <option value="Girls">Girls</option>
+        <option value="Men">Men</option>
+        <option value="Women">Women</option>
+        </select>
+        </td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+		<label for="edivision">Event Division: </label>
+		</td>
+		<td>
+		<select id="edivision" name="edivision">
+		{% for r in event_division %}
+		<option value="{{r}}">{{r}}</option>
+	    {% endfor %}
+        </select>
+        </td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+		<label for="eround">Event Round: </label>
+		</td>
+		<td>
+		<select id="eround" name="eround">
+        <option value="F">Finals</option>
+        <option value="S">SemiFinals</option>
+        <option value="P">Preliminaries</option>
+
+        </select>
+        </td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+		<label for="enote">Event Note: </label>
+		</td>
+		<td>
+		<input type="text" name="enote" id="enote" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td rowspan=2>
+		<input type="submit" value="Create">
+		</td>
+	</div>
+	</tr>
+	</table>
+</form>
+
+{% endblock %}

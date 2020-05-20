@@ -1,0 +1,63 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Add Athlete Result </h1>
+<h2> {{competition.CompName}} </h2>
+<h2> Event : {{athlete_event['EventName']+ ' ' +athlete_event['EventGender']+ ' ' +athlete_event['EventDivision']+  ' '+ athlete_event['EventRound']}} </h2>
+
+<p>{{ message }}</p>
+
+<form method="POST">
+    <table>
+    <tr>
+    <div>
+        <td>
+		<label for="acnum">AC #: </label>
+		</td>
+		<td>
+		<input type="text" name="acnum" id="acnum" />
+        </td>
+
+	</div>
+    </tr>
+    <tr>
+	<div>
+	    <td>
+		<label for="mark">Mark: </label>
+		</td>
+		<td>
+		<input type="text" name="mark" id="mark" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+		<label for="position">Position: </label>
+		</td>
+		<td>
+		<input type="text" name="position" id="position" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td>
+		<label for="wind">Wind: </label>
+		</td>
+		<td>
+		<input type="text" name="wind" id="wind" />
+		</td>
+	</div>
+	</tr>
+	<tr>
+	<div>
+	    <td rowspan=2>
+		<input type="submit" value="Create">
+		</td>
+	</div>
+	</tr>
+	</table>
+</form>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Competition : {{competition['CompName']}}</h1>
+<h2> Event : {{athlete_event['EventGender'] + ' '+ athlete_event['EventName']+ ' ' +athlete_event['EventDivision']+  ' '}}
+{% if athlete_event['EventRound']=="P" %}
+		Preliminaries
+		{% elif athlete_event['EventRound']=="S"%}
+		 Semi Finals
+		 {% else %}
+		 Finals
+		{% endif %}</h2>
+
+<div>
+<a href="{{ url_for('create_athlete_result',comp_id=competition['CompId'],event_id=athlete_event['EventId']) }}">Add Athlete Result</a><br>
+</div>
+
+<table border=1><tr><th>AC Number</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>DOB</th>
+    <th>Mark</th>
+    <th>Position</th>
+    <th>Wind</th>
+    </tr>
+	{% for result in athlete_results %}
+		<tr><td>{{ result['ACNum']}}</td>
+		<td>{{ result['FirstName']}}</td>
+		<td>{{ result['LastName']}}</td>
+		<td>{{ result['DOB']}}</td>
+		<td>{{ result['Mark']}}</td>
+		<td>{{ result['Position']}}</td>
+		<td>{{ result['Wind']}}</td>
+		<td><form onSubmit="if(!confirm('Are you sure ?')){return false;}" method="POST">
+		<input type="hidden" name="athlete_id" value="{{result['AthleteId']}}"/>
+		<input type="submit" value="Delete Result"/>
+		</form>
+		</td>
+    </tr>
+	{% endfor %}
+</table>
+
+{% endblock %}

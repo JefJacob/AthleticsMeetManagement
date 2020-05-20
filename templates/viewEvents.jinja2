@@ -1,0 +1,42 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+<h1>Competition : {{competition['CompName']}}</h1>
+
+<div>
+<a href="{{ url_for('create_event',comp_id=competition['CompId']) }}">Create new Event</a><br>
+</div>
+
+<table border=1><tr><th>EventName</th>
+    <th>EventGender</th>
+    <th>EventDivision</th>
+    <th>EventRound</th>
+    </tr>
+	{% for event in athlete_events %}
+		<tr><td>{{ event['EventName']}}</td>
+		<td>{{ event['EventGender']}}</td>
+		<td>{{ event['EventDivision']}}</td>
+		<td>
+		{% if event['EventRound']=="P" %}
+		Preliminaries
+		{% elif event['EventRound']=="S"%}
+		 Semi Finals
+		 {% else %}
+		 Finals
+		{% endif %}
+		</td>
+		<td><form action="{{ url_for('view_athlete_results',comp_id=competition['CompId'],event_id=event['EventId'])}}" method="POST" >
+		<input type="submit" value="View Results"/>
+		</form>
+		</td>
+		<td><form onSubmit="if(!confirm('Are you sure ?')){return false;}" method="POST">
+		<input type="hidden" name="comp_id" value="{{competition['CompId']}}"/>
+		<input type="hidden" name="event_id" value="{{event['EventId']}}"/>
+		<input type="submit" value="Delete Event"/>
+		</form>
+		</td>
+        </tr>
+	{% endfor %}
+</table>
+
+{% endblock %}
